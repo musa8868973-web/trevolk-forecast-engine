@@ -1,0 +1,87 @@
+# ===========================================================================
+# Trevolk Forecasting Engine — .gitignore
+# Optimised for Python / FastAPI / XGBoost on Windows + VS Code
+# ===========================================================================
+
+# ---------------------------------------------------------------------------
+# CRITICAL: Secrets & Large Binary Files — NEVER commit these
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example          # allow the sanitised example file through
+
+*.pkl                  # XGBoost / joblib model binaries (can be 77MB+)
+*.joblib
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# ---------------------------------------------------------------------------
+# Python bytecode & caches
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# ---------------------------------------------------------------------------
+# Virtual environments
+# ---------------------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+.env.bak
+
+# ---------------------------------------------------------------------------
+# Distribution / packaging
+# ---------------------------------------------------------------------------
+dist/
+build/
+*.egg-info/
+*.egg
+MANIFEST
+
+# ---------------------------------------------------------------------------
+# Testing & coverage
+# ---------------------------------------------------------------------------
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+*.log
+nosetests.xml
+test-results/
+
+# ---------------------------------------------------------------------------
+# Security scan artefacts
+# ---------------------------------------------------------------------------
+bandit_report.json
+bandit_report.txt
+safety_report.json
+safety_report.txt
+
+# ---------------------------------------------------------------------------
+# IDE & OS artefacts
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.iml
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ---------------------------------------------------------------------------
+# Documentation build outputs (keep the PDF in repo if desired;
+# remove the line below if you want to commit the generated PDF)
+# ---------------------------------------------------------------------------
+# Trevolk_API_Architecture.pdf
+
+# ---------------------------------------------------------------------------
+# Node / Next.js (frontend — if in the same repo)
+# ---------------------------------------------------------------------------
+node_modules/
+.next/
+.nuxt/
+.cache/

@@ -1,0 +1,3 @@
+- [x] Build the premium light forecasting dashboard and input panel.
+- [x] Add animated weekly chart, KPI counters, and loading state.
+- [x] Send prediction JSON to the requested endpoint with a usable mock fallback.

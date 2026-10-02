@@ -1,0 +1,107 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@theme inline {
+  --font-sans: "DM Sans", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-line: var(--chart-line);
+  --color-chart-fill: var(--chart-fill);
+  --color-positive: var(--positive);
+  --color-positive-surface: var(--positive-surface);
+  --color-nav-active: var(--nav-active);
+  --color-divider: var(--divider);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+:root {
+  --background: oklch(0.982 0.004 250);
+  --foreground: oklch(0.19 0.022 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.19 0.022 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.19 0.022 260);
+  --primary: oklch(0.52 0.195 259);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.008 250);
+  --secondary-foreground: oklch(0.29 0.025 260);
+  --muted: oklch(0.965 0.004 250);
+  --muted-foreground: oklch(0.56 0.015 260);
+  --accent: oklch(0.945 0.025 256);
+  --accent-foreground: oklch(0.43 0.16 259);
+  --destructive: oklch(0.59 0.22 28);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.915 0.009 250);
+  --input: oklch(0.91 0.009 250);
+  --ring: oklch(0.65 0.16 259);
+  --chart-line: oklch(0.52 0.195 259);
+  --chart-fill: oklch(0.88 0.065 253);
+  --positive: oklch(0.43 0.12 163);
+  --positive-surface: oklch(0.95 0.035 164);
+  --nav-active: oklch(0.96 0.019 254);
+  --divider: oklch(0.945 0.006 250);
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  body { background: var(--background); color: var(--foreground); font-family: "DM Sans", sans-serif; }
+  button, input { font: inherit; }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+@keyframes number-pop {
+  from { opacity: .55; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@utility reveal {
+  animation: rise-in .65s cubic-bezier(.2,.7,.2,1) both;
+}
+@utility skeleton-shimmer {
+  background: linear-gradient(90deg, var(--muted) 25%, var(--secondary) 50%, var(--muted) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+.stagger > :nth-child(1) { animation-delay: .06s; }
+.stagger > :nth-child(2) { animation-delay: .13s; }
+.stagger > :nth-child(3) { animation-delay: .2s; }
+.stagger > :nth-child(4) { animation-delay: .27s; }
+.stagger > :nth-child(5) { animation-delay: .34s; }
+.reveal-chart { animation-delay: .3s; }
+.reveal-input { animation-delay: .38s; }
+.reveal-breakdown { animation-delay: .45s; }
+.metric-number { animation: number-pop .45s ease both; font-variant-numeric: tabular-nums; }
+.chart-grid line { stroke: var(--divider); }
+input[type="date"]::-webkit-calendar-picker-indicator { opacity: .55; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

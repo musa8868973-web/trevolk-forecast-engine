@@ -1,0 +1,28 @@
+# ===========================================================================
+# Trevolk Forecasting Engine — Python Dependencies
+# ===========================================================================
+# Install all dependencies:
+#   pip install -r requirements.txt
+# ===========================================================================
+
+# --- API Framework ---
+fastapi==0.115.0
+uvicorn[standard]==0.30.6      # [standard] includes httptools + websockets
+
+# --- ML & Data ---
+xgboost==2.1.1
+scikit-learn==1.5.2            # required by joblib's XGBoost serialisation
+joblib==1.4.2
+pandas==2.2.2
+numpy==1.26.4
+
+# --- Validation ---
+pydantic==2.8.2                # Pydantic v2 — used by FastAPI 0.115
+
+# --- Documentation Generator ---
+reportlab==4.2.2
+
+# --- Development / Testing (optional, remove in prod) ---
+httpx==0.27.2                  # async test client for FastAPI TestClient
+pytest==8.3.3
+pytest-asyncio==0.23.8
